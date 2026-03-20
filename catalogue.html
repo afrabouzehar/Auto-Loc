@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AutoLoc Premium — Catalogue</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="css/catalogue.css"/>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <a href="index.html" class="logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="1" y="9" width="22" height="9" rx="2"/>
+        <path d="M5 9V7a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v2"/>
+        <circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/>
+      </svg>
+      AutoLoc Premium
+    </a>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="catalogue.html" class="active">Catalogue</a></li>
+      <li><a href="reservation.html">Réservation</a></li>
+      <li><a href="apropos.html">À propos</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <section class="page-header">
+    <h1>Notre Catalogue</h1>
+    <p>Découvrez notre sélection de véhicules premium disponibles à la location</p>
+  </section>
+
+  <!-- FILTERS -->
+  <section class="catalogue-section">
+    <div class="filters">
+      <button class="filter-btn active" data-filter="all">Tous</button>
+      <button class="filter-btn" data-filter="Sport">Sport</button>
+      <button class="filter-btn" data-filter="SUV">SUV</button>
+      <button class="filter-btn" data-filter="Compacte">Compacte</button>
+      <button class="filter-btn" data-filter="Berline">Berline</button>
+      <button class="filter-btn" data-filter="Électrique">Électrique</button>
+    </div>
+
+    <!-- CARS GRID -->
+    <div class="cars-grid" id="carsGrid">
+
+      <div class="car-card" data-category="Sport">
+        <div class="car-img">
+          <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=600&q=80" alt="Porsche 911"/>
+        </div>
+        <div class="car-info">
+          <div class="car-header">
+            <h3>Porsche 911 Carrera</h3>
+            <span class="tag">Sport</span>
+          </div>
+          <p>Voiture de sport emblématique, performances exceptionnelles et design intemporel.</p>
+          <ul class="car-specs">
+            <li>🔧 450 ch</li>
+            <li>⚡ 0–100 en 3.6s</li>
+            <li>⛽ Essence</li>
+          </ul>
+          <div class="car-footer">
+            <span class="price">250€/jour</span>
+            <a href="reservation.html" class="btn btn-primary">Réserver</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="car-card" data-category="SUV">
+        <div class="car-img">
+          <img src="https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?w=600&q=80" alt="BMW X5"/>
+        </div>
+        <div class="car-info">
+          <div class="car-header">
+            <h3>BMW X5 SUV</h3>
+            <span class="tag">SUV</span>
+          </div>
+          <p>SUV premium alliant confort, espace et technologie de pointe.</p>
+          <ul class="car-specs">
+            <li>🔧 340 ch</li>
+            <li>🚗 7 places</li>
+            <li>⛽ Diesel</li>
+          </ul>
+          <div class="car-footer">
+            <span class="price">180€/jour</span>
+            <a href="reservation.html" class="btn btn-primary">Réserver</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="car-card" data-category="Compacte">
+        <div class="car-img">
+          <img src="https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?w=600&q=80" alt="Renault Clio"/>
+        </div>
+        <div class="car-info">
+          <div class="car-header">
+            <h3>Renault Clio</h3>
+            <span class="tag">Compacte</span>
+          </div>
+          <p>Voiture compacte idéale pour la ville, économique et facile à conduire.</p>
+          <ul class="car-specs">
+            <li>🔧 100 ch</li>
+            <li>⛽ Essence</li>
+            <li>💺 5 places</li>
+          </ul>
+          <div class="car-footer">
+            <span class="price">45€/jour</span>
+            <a href="reservation.html" class="btn btn-primary">Réserver</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="car-card" data-category="Berline">
+        <div class="car-img">
+          <img src="https://images.unsplash.com/photo-1617788138017-80ad40651399?w=600&q=80" alt="Mercedes Classe E"/>
+        </div>
+        <div class="car-info">
+          <div class="car-header">
+            <h3>Mercedes Classe E</h3>
+            <span class="tag">Berline</span>
+          </div>
+          <p>Berline luxueuse parfaite pour les déplacements professionnels et les longs trajets.</p>
+          <ul class="car-specs">
+            <li>🔧 300 ch</li>
+            <li>⛽ Hybride</li>
+            <li>💺 5 places</li>
+          </ul>
+          <div class="car-footer">
+            <span class="price">160€/jour</span>
+            <a href="reservation.html" class="btn btn-primary">Réserver</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="car-card" data-category="Électrique">
+        <div class="car-img">
+          <img src="https://images.unsplash.com/photo-1560958089-b8a1929cea89?w=600&q=80" alt="Tesla Model 3"/>
+        </div>
+        <div class="car-info">
+          <div class="car-header">
+            <h3>Tesla Model 3</h3>
+            <span class="tag">Électrique</span>
+          </div>
+          <p>Véhicule électrique ultra-moderne avec une autonomie de 560 km par charge.</p>
+          <ul class="car-specs">
+            <li>⚡ 100% Électrique</li>
+            <li>🔋 560 km</li>
+            <li>💺 5 places</li>
+          </ul>
+          <div class="car-footer">
+            <span class="price">130€/jour</span>
+            <a href="reservation.html" class="btn btn-primary">Réserver</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="car-card" data-category="Sport">
+        <div class="car-img">
+          <img src="https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=600&q=80" alt="Ferrari"/>
+        </div>
+        <div class="car-info">
+          <div class="car-header">
+            <h3>Ferrari F8 Tributo</h3>
+            <span class="tag">Sport</span>
+          </div>
+          <p>Le summum de la sportivité italienne, une expérience de conduite incomparable.</p>
+          <ul class="car-specs">
+            <li>🔧 720 ch</li>
+            <li>⚡ 0–100 en 2.9s</li>
+            <li>⛽ Essence</li>
+          </ul>
+          <div class="car-footer">
+            <span class="price">550€/jour</span>
+            <a href="reservation.html" class="btn btn-primary">Réserver</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22">
+            <rect x="1" y="9" width="22" height="9" rx="2"/>
+            <path d="M5 9V7a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v2"/>
+            <circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/>
+          </svg>
+          AutoLoc Premium
+        </a>
+        <p>Votre agence de location de voitures premium.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <a href="index.html">Accueil</a>
+        <a href="catalogue.html">Catalogue</a>
+        <a href="reservation.html">Réservation</a>
+        <a href="apropos.html">À propos</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="#">📍 12 Rue de la Paix, Paris</a>
+        <a href="#">📞 +33 1 23 45 67 89</a>
+        <a href="#">✉️ contact@autoloc.fr</a>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2025 AutoLoc Premium — Projet fictif</div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/catalogue.js"></script>
+</body>
+</html>

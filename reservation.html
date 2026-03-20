@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AutoLoc Premium — Réservation</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="css/reservation.css"/>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <a href="index.html" class="logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="1" y="9" width="22" height="9" rx="2"/>
+        <path d="M5 9V7a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v2"/>
+        <circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/>
+      </svg>
+      AutoLoc Premium
+    </a>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="catalogue.html">Catalogue</a></li>
+      <li><a href="reservation.html" class="active">Réservation</a></li>
+      <li><a href="apropos.html">À propos</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <section class="page-header">
+    <h1>Réservation</h1>
+    <p>Remplissez le formulaire ci-dessous pour réserver votre véhicule</p>
+  </section>
+
+  <!-- RESERVATION FORM -->
+  <section class="resa-section">
+    <div class="resa-container">
+
+      <!-- FORM -->
+      <div class="resa-form-box">
+        <h2>Vos informations</h2>
+        <div id="successMsg" class="success-msg" style="display:none;">
+          ✅ Réservation envoyée ! (Projet fictif — aucune donnée n'est enregistrée)
+        </div>
+
+        <div class="form-group">
+          <label for="prenom">Prénom</label>
+          <input type="text" id="prenom" placeholder="Jean"/>
+        </div>
+        <div class="form-group">
+          <label for="nom">Nom</label>
+          <input type="text" id="nom" placeholder="Dupont"/>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="jean@email.com"/>
+        </div>
+        <div class="form-group">
+          <label for="tel">Téléphone</label>
+          <input type="tel" id="tel" placeholder="+33 6 12 34 56 78"/>
+        </div>
+
+        <h2 style="margin-top: 1.5rem;">Détails de la location</h2>
+
+        <div class="form-group">
+          <label for="voiture">Véhicule souhaité</label>
+          <select id="voiture">
+            <option value="">-- Choisir un véhicule --</option>
+            <option value="Porsche 911 Carrera — 250€/jour">Porsche 911 Carrera — 250€/jour</option>
+            <option value="BMW X5 SUV — 180€/jour">BMW X5 SUV — 180€/jour</option>
+            <option value="Renault Clio — 45€/jour">Renault Clio — 45€/jour</option>
+            <option value="Mercedes Classe E — 160€/jour">Mercedes Classe E — 160€/jour</option>
+            <option value="Tesla Model 3 — 130€/jour">Tesla Model 3 — 130€/jour</option>
+            <option value="Ferrari F8 Tributo — 550€/jour">Ferrari F8 Tributo — 550€/jour</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="dateDebut">Date de départ</label>
+            <input type="date" id="dateDebut"/>
+          </div>
+          <div class="form-group">
+            <label for="dateFin">Date de retour</label>
+            <input type="date" id="dateFin"/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="message">Message (optionnel)</label>
+          <textarea id="message" rows="3" placeholder="Informations supplémentaires..."></textarea>
+        </div>
+
+        <button class="btn btn-primary" id="reserverBtn" style="width:100%; margin-top:0.5rem;">
+          Confirmer la réservation
+        </button>
+      </div>
+
+      <!-- SUMMARY -->
+      <div class="resa-summary">
+        <h3>Récapitulatif</h3>
+        <div class="summary-row">
+          <span>Véhicule</span>
+          <span id="sumVoiture">—</span>
+        </div>
+        <div class="summary-row">
+          <span>Départ</span>
+          <span id="sumDebut">—</span>
+        </div>
+        <div class="summary-row">
+          <span>Retour</span>
+          <span id="sumFin">—</span>
+        </div>
+        <div class="summary-row">
+          <span>Durée</span>
+          <span id="sumDuree">—</span>
+        </div>
+        <div class="summary-divider"></div>
+        <div class="summary-total">
+          <span>Total estimé</span>
+          <span id="sumTotal">—</span>
+        </div>
+        <p class="summary-note">⚠️ Projet fictif. Aucun paiement n'est requis.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22">
+            <rect x="1" y="9" width="22" height="9" rx="2"/>
+            <path d="M5 9V7a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v2"/>
+            <circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/>
+          </svg>
+          AutoLoc Premium
+        </a>
+        <p>Votre agence de location de voitures premium.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <a href="index.html">Accueil</a>
+        <a href="catalogue.html">Catalogue</a>
+        <a href="reservation.html">Réservation</a>
+        <a href="apropos.html">À propos</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="#">📍 12 Rue de la Paix, Paris</a>
+        <a href="#">📞 +33 1 23 45 67 89</a>
+        <a href="#">✉️ contact@autoloc.fr</a>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2025 AutoLoc Premium — Projet fictif</div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/reservation.js"></script>
+</body>
+</html>
