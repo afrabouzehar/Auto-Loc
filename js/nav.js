@@ -1,52 +1,88 @@
 (() => {
   const navbar = document.querySelector('.navbar');
   const navLinks = document.querySelector('.nav-liens');
+
   if (!navbar || !navLinks) return;
 
-  const links = [...navLinks.children];
+  const items = [...navLinks.querySelectorAll('li')].map((li) => li.cloneNode(true));
+  if (items.length === 0) return;
 
-  // ===== PC MENU =====
+  // ===== DESKTOP MENU =====
   navLinks.innerHTML = '';
+  navLinks.classList.add('nav-primary');
 
-  // 3 premiers liens
-  links.slice(0, 3).forEach(li => navLinks.appendChild(li.cloneNode(true)));
+  items.slice(0, 3).forEach((item) => navLinks.appendChild(item));
 
-  // Bouton "Plus"
-  if (links.length > 3) {
-    const more = document.createElement('li');
-    more.textContent = 'Plus ▾';
+  if (items.length > 3) {
+    const moreItem = document.createElement('li');
+    moreItem.className = 'nav-more';
 
-    const dropdown = document.createElement('ul');
+    const moreButton = document.createElement('button');
+    moreButton.type = 'button';
+    moreButton.className = 'nav-toggle';
+    moreButton.setAttribute('aria-expanded', 'false');
+    moreButton.textContent = 'Plus ▾';
 
-    links.slice(3).forEach(li => {
-      dropdown.appendChild(li.cloneNode(true));
+    const moreMenu = document.createElement('ul');
+    moreMenu.className = 'nav-more-menu';
+
+    items.slice(3).forEach((item) => {
+      moreMenu.appendChild(item.cloneNode(true));
     });
 
-    more.appendChild(dropdown);
-
-    more.addEventListener('click', () => {
-      dropdown.classList.toggle('open');
+    moreButton.addEventListener('click', () => {
+      const isOpen = moreItem.classList.toggle('open');
+      moreButton.setAttribute('aria-expanded', String(isOpen));
     });
 
-    navLinks.appendChild(more);
+    document.addEventListener('click', (event) => {
+      if (!moreItem.contains(event.target)) {
+        moreItem.classList.remove('open');
+        moreButton.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    moreItem.append(moreButton, moreMenu);
+    navLinks.appendChild(moreItem);
   }
 
-  // ===== MOBILE MENU =====
+  // ===== MOBILE MENU (PHONE ONLY, via CSS media query) =====
   const burger = document.createElement('button');
+  burger.type = 'button';
+  burger.className = 'nav-burger';
+  burger.setAttribute('aria-label', 'Ouvrir le menu de navigation');
+  burger.setAttribute('aria-expanded', 'false');
   burger.textContent = '☰';
 
-  const mobileMenu = document.createElement('ul');
-  mobileMenu.className = 'mobile-menu';
+  const mobileContainer = document.createElement('div');
+  mobileContainer.className = 'nav-mobile-menu';
 
-  links.forEach(li => {
-    mobileMenu.appendChild(li.cloneNode(true));
+  const mobileList = document.createElement('ul');
+  items.forEach((item) => {
+    mobileList.appendChild(item.cloneNode(true));
   });
 
+  mobileContainer.appendChild(mobileList);
+
   burger.addEventListener('click', () => {
-    mobileMenu.classList.toggle('open');
-    burger.textContent = mobileMenu.classList.contains('open') ? '✕' : '☰';
+    const isOpen = mobileContainer.classList.toggle('open');
+    burger.setAttribute('aria-expanded', String(isOpen));
+    burger.setAttribute(
+      'aria-label',
+      isOpen ? 'Fermer le menu de navigation' : 'Ouvrir le menu de navigation'
+    );
+    burger.textContent = isOpen ? '✕' : '☰';
+  });
+
+  mobileContainer.addEventListener('click', (event) => {
+    if (event.target.closest('a')) {
+      mobileContainer.classList.remove('open');
+      burger.setAttribute('aria-expanded', 'false');
+      burger.setAttribute('aria-label', 'Ouvrir le menu de navigation');
+      burger.textContent = '☰';
+    }
   });
 
   navbar.appendChild(burger);
-  navbar.after(mobileMenu);
+  navbar.insertAdjacentElement('afterend', mobileContainer);
 })();
