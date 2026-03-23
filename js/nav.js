@@ -1,87 +1,52 @@
 (() => {
   const navbar = document.querySelector('.navbar');
   const navLinks = document.querySelector('.nav-liens');
-
   if (!navbar || !navLinks) return;
 
-  const links = Array.from(navLinks.querySelectorAll('li'));
-  if (!links.length) return;
+  const links = [...navLinks.children];
 
-  const wrapper = document.createElement('div');
-  wrapper.className = 'nav-menu-wrapper';
-
-  navLinks.classList.add('nav-primary');
+  // ===== PC MENU =====
   navLinks.innerHTML = '';
-  links.slice(0, 3).forEach((item) => navLinks.appendChild(item.cloneNode(true)));
-  wrapper.appendChild(navLinks);
 
-  const moreItems = links.slice(3);
-  if (moreItems.length) {
-    const moreContainer = document.createElement('div');
-    moreContainer.className = 'nav-more';
+  // 3 premiers liens
+  links.slice(0, 3).forEach(li => navLinks.appendChild(li.cloneNode(true)));
 
-    const moreButton = document.createElement('button');
-    moreButton.className = 'nav-toggle nav-more-toggle';
-    moreButton.type = 'button';
-    moreButton.setAttribute('aria-expanded', 'false');
-    moreButton.textContent = 'Plus ▾';
+  // Bouton "Plus"
+  if (links.length > 3) {
+    const more = document.createElement('li');
+    more.textContent = 'Plus ▾';
 
-    const moreMenu = document.createElement('ul');
-    moreMenu.className = 'nav-more-menu';
-    moreItems.forEach((item) => moreMenu.appendChild(item.cloneNode(true)));
+    const dropdown = document.createElement('ul');
 
-    moreButton.addEventListener('click', () => {
-      const isOpen = moreContainer.classList.toggle('open');
-      moreButton.setAttribute('aria-expanded', String(isOpen));
+    links.slice(3).forEach(li => {
+      dropdown.appendChild(li.cloneNode(true));
     });
 
-    document.addEventListener('click', (event) => {
-      if (!moreContainer.contains(event.target)) {
-        moreContainer.classList.remove('open');
-        moreButton.setAttribute('aria-expanded', 'false');
-      }
+    more.appendChild(dropdown);
+
+    more.addEventListener('click', () => {
+      dropdown.classList.toggle('open');
     });
 
-    moreContainer.append(moreButton, moreMenu);
-    wrapper.appendChild(moreContainer);
+    navLinks.appendChild(more);
   }
 
-  const burgerButton = document.createElement('button');
-  burgerButton.className = 'nav-toggle nav-burger';
-  burgerButton.type = 'button';
-  burgerButton.setAttribute('aria-expanded', 'false');
-  burgerButton.setAttribute('aria-label', 'Ouvrir le menu');
-  burgerButton.textContent = '☰';
+  // ===== MOBILE MENU =====
+  const burger = document.createElement('button');
+  burger.textContent = '☰';
 
-  const mobileMenu = document.createElement('div');
-  mobileMenu.className = 'nav-mobile-menu';
-  const mobileList = document.createElement('ul');
-  links.forEach((item) => mobileList.appendChild(item.cloneNode(true)));
-  mobileMenu.appendChild(mobileList);
+  const mobileMenu = document.createElement('ul');
+  mobileMenu.className = 'mobile-menu';
 
-  burgerButton.addEventListener('click', () => {
-    const isOpen = mobileMenu.classList.toggle('open');
-    burgerButton.setAttribute('aria-expanded', String(isOpen));
-    burgerButton.textContent = isOpen ? '✕' : '☰';
+  links.forEach(li => {
+    mobileMenu.appendChild(li.cloneNode(true));
   });
 
-  document.addEventListener('click', (event) => {
-    if (!navbar.contains(event.target)) {
-      mobileMenu.classList.remove('open');
-      burgerButton.setAttribute('aria-expanded', 'false');
-      burgerButton.textContent = '☰';
-    }
+  burger.addEventListener('click', () => {
+    mobileMenu.classList.toggle('open');
+    burger.textContent = mobileMenu.classList.contains('open') ? '✕' : '☰';
   });
 
-  window.addEventListener('resize', () => {
-    if (window.innerWidth > 768) {
-      mobileMenu.classList.remove('open');
-      burgerButton.setAttribute('aria-expanded', 'false');
-      burgerButton.textContent = '☰';
-    }
-  });
-
-  navbar.appendChild(wrapper);
-  navbar.appendChild(burgerButton);
-  navbar.insertAdjacentElement('afterend', mobileMenu);
+  navbar.appendChild(burger);
+  navbar.after(mobileMenu);
 })();
