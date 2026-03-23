@@ -26,10 +26,9 @@ carloc/
 │   ├── contact.css      
 │
 ├── js/
-│   ├── contact.js        
-│   ├── catalogue.js    # Car card rendering & filters
-│   └── resevation.js  # Booking form validation & summary
-    └── nav.js          # navigation bar plus
+│   ├── contact.js       # Contact form interactions
+│   ├── catalogue.js     # Car card rendering & filters
+│   └── resevation.js    # Booking form validation & summary
 
 
 ---
@@ -77,7 +76,7 @@ python -m http.server 5500
 
 ## ✨ Features
 
-- Responsive navigation bar with active page highlight
+- Simple responsive navigation bar with active page highlight
 - Car catalogue with category filters (SUV, Sedan, etc.)
 - Reservation form with client-side validation and booking summary
 - Clean, mobile-friendly layout
