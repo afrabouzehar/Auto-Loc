@@ -60,6 +60,73 @@ img {
   list-style: none;
 }
 
+.nav-menu-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.nav-primary {
+  gap: 22px;
+}
+
+.nav-more {
+  position: relative;
+}
+
+.nav-toggle {
+  border: 1px solid var(--bordure);
+  background: var(--blanc);
+  color: #333;
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.nav-toggle:hover {
+  color: var(--bleu);
+  border-color: #c9d8ff;
+}
+
+.nav-more-menu {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: calc(100% + 8px);
+  min-width: 180px;
+  padding: 8px;
+  list-style: none;
+  background: var(--blanc);
+  border: 1px solid var(--bordure);
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
+
+.nav-more-menu li a {
+  display: block;
+  padding: 9px 10px;
+  border-radius: 8px;
+}
+
+.nav-more-menu li a:hover {
+  background: #f8faff;
+}
+
+.nav-more.open .nav-more-menu {
+  display: block;
+}
+
+.nav-burger {
+  display: none;
+}
+
+.nav-mobile-menu {
+  display: none;
+}
+
 .nav-liens a {
   color: #333;
   font-size: 0.95rem;
@@ -273,7 +340,36 @@ footer a:hover {
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
   .navbar { padding: 0 20px; }
-  .nav-liens { display: none; }
+  .nav-primary,
+  .nav-more { display: none; }
+  .nav-burger {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .nav-mobile-menu {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background: var(--blanc);
+    border-bottom: 1px solid var(--bordure);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+    z-index: 9;
+  }
+  .nav-mobile-menu.open { display: block; }
+  .nav-mobile-menu ul {
+    list-style: none;
+    padding: 10px 20px 18px;
+  }
+  .nav-mobile-menu li a {
+    display: block;
+    padding: 12px 0;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  .nav-mobile-menu li:last-child a {
+    border-bottom: none;
+  }
   .grille-voitures { grid-template-columns: 1fr; }
   footer { grid-template-columns: 1fr; padding: 30px 20px; }
   .entete { padding: 40px 20px; }
