@@ -1,4 +1,4 @@
-# 🚗 CarLoc — Fictional Car Rental Website
+# 🚗 AutoLoc — Fictional Car Rental Website
 
 A static front-end project simulating a car rental platform. Built with plain HTML, CSS, and JavaScript — no back-end, no framework, just clean web fundamentals.
 
@@ -15,27 +15,22 @@ carloc/
 ├── reservation.html    # Réservation (Booking form page)
 ├── apropos.html        # À propos (About page)
 ├── contact.html        # Contact page
+├── README.md        
 │
 ├── css/
 │   ├── style.css       # Global styles (reset, typography, colors)
-│   ├── navbar.css      # Navigation bar styles
-│   └── pages/
-│       ├── home.css
-│       ├── catalogue.css
-│       ├── reservation.css
-│       ├── apropos.css
-│       └── contact.css
+│   ├── index.css       # Navigation bar styles
+│   ├── apropos.css     
+│   ├── catalogue.css      
+│   ├── reservation.css
+│   ├── contact.css      
 │
 ├── js/
-│   ├── main.js         # Shared scripts (navbar toggle, active link, etc.)
+│   ├── contact.js        
 │   ├── catalogue.js    # Car card rendering & filters
-│   └── reservation.js  # Booking form validation & summary
-│
-└── assets/
-    ├── images/
-    │   └── cars/       # Car images
-    └── icons/          # UI icons / favicon
-```
+│   └── resevation.js  # Booking form validation & summary
+    └── nav.js          # navigation bar plus
+
 
 ---
 
