@@ -5,52 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AutoLoc Premium — Catalogue</title>
   <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="./css/catalogue.css" />
   <style>
-    .catalogue { padding: 50px 40px; }
-
-    /* Boutons filtres */
-    .filtres {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-bottom: 32px;
-    }
-
-    .btn-filtre {
-      padding: 8px 20px;
-      border-radius: 30px;
-      border: 2px solid #ddd;
-      background: white;
-      font-family: 'Poppins', sans-serif;
-      font-size: 0.9rem;
-      cursor: pointer;
-    }
-
-    .btn-filtre:hover { border-color: #2563eb; color: #2563eb; }
-    .btn-filtre.actif { background: #2563eb; border-color: #2563eb; color: white; }
-
-    /* Cacher une carte */
-    .carte-voiture.cache { display: none; }
-
-    /* Specs */
-    .specs {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      margin-bottom: 12px;
-    }
-
-    .specs span {
-      background: #f5f5f5;
-      color: #666;
-      font-size: 0.8rem;
-      padding: 3px 10px;
-      border-radius: 20px;
-    }
-
-    @media (max-width: 768px) {
-      .catalogue { padding: 30px 20px; }
-    }
+   
   </style>
 </head>
 <body>
@@ -233,23 +190,8 @@
   </footer>
   <div class="footer-bas">© 2025 AutoLoc Premium — Projet fictif</div>
 
-  <script>
-    // Filtrer les voitures selon la catégorie
-    function filtrer(categorie, boutonClique) {
-      // Changer le bouton actif
-      document.querySelectorAll('.btn-filtre').forEach(b => b.classList.remove('actif'));
-      boutonClique.classList.add('actif');
+ <script src="./js/catalogue.js"></script>
 
-      // Afficher ou cacher les cartes
-      document.querySelectorAll('.carte-voiture').forEach(carte => {
-        if (categorie === 'tous' || carte.dataset.categorie === categorie) {
-          carte.classList.remove('cache');
-        } else {
-          carte.classList.add('cache');
-        }
-      });
-    }
-  </script>
 
 </body>
 </html>
