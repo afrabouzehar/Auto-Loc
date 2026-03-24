@@ -9,6 +9,15 @@
         alert('Veuillez remplir tous les champs.');
         return;
       }
+  function validerEmail(email) {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return regex.test(email);
+}
+
+  if (!validerEmail(email)) {
+    alert('Email invalide. Doit contenir un @');
+  return;
+}
 
       // Afficher le message de succès
       document.getElementById('messageOk').style.display = 'block';
