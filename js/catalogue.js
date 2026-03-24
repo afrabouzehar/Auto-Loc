@@ -7,9 +7,16 @@
  * - Activer/désactiver les boutons de filtre
  * - Afficher/cacher les cartes de voiture
  **/
+/**Quand je clique :
+  → enlever actif de tous les boutons
+  → mettre actif au bouton cliqué
+
+  → pour chaque voiture :
+        si elle correspond → afficher
+        sinon → cacher**/
 
 function filtrer(categorie, bouton) {
-  console.log('Filtrage activé pour :', categorie); // Pour déboguer
+  console.log('Filtrage activé pour :', categorie); 
   
   // 1️⃣ Enlever la classe 'actif' de TOUS les boutons de filtre
   document.querySelectorAll('.btn-filtre').forEach(btn => {
