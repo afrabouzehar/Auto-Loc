@@ -1,7 +1,7 @@
-/* ===== POLICE GOOGLE ===== */
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 
-/* ===== COULEURS ===== */
+
 :root {
   --bleu: #2563eb;
   --noir: #111111;
@@ -11,7 +11,7 @@
   --bordure: #dddddd;
 }
 
-/* ===== BASE ===== */
+
 * {
   margin: 0;
   padding: 0;
@@ -34,7 +34,6 @@ img {
   display: block;
 }
 
-/* ===== NAVBAR ===== */
 .navbar {
   display: flex;
   align-items: center;
@@ -74,7 +73,6 @@ img {
   font-weight: 600;
 }
 
-/* ===== BOUTONS ===== */
 .btn {
   display: inline-block;
   padding: 12px 28px;
@@ -101,7 +99,6 @@ img {
   border: 2px solid var(--blanc);
 }
 
-/* ===== EN-TÊTE DE PAGE ===== */
 .entete {
   background: var(--noir);
   color: var(--blanc);
@@ -119,7 +116,6 @@ img {
   font-size: 1rem;
 }
 
-/* ===== TITRE DE SECTION ===== */
 .titre-section {
   font-size: 1.8rem;
   font-weight: 700;
@@ -128,7 +124,6 @@ img {
   color: var(--noir);
 }
 
-/* ===== CARTE VOITURE ===== */
 .grille-voitures {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -186,7 +181,6 @@ img {
   border-radius: 20px;
 }
 
-/* ===== FORMULAIRE ===== */
 .groupe {
   margin-bottom: 16px;
 }
@@ -217,7 +211,6 @@ img {
   border-color: var(--bleu);
 }
 
-/* ===== MESSAGE SUCCÈS ===== */
 .message-ok {
   background: #d1fae5;
   color: #065f46;
@@ -227,7 +220,6 @@ img {
   display: none;
 }
 
-/* ===== FOOTER ===== */
 footer {
   background: var(--noir);
   color: #aaa;
@@ -270,7 +262,6 @@ footer a:hover {
   border-top: 1px solid #222;
 }
 
-/* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
   .navbar {
     height: auto;
