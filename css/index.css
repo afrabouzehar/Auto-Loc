@@ -1,18 +1,18 @@
  /* Styles spécifiques à cette page */
 
-    .hero {
+    .main-black-page {
       background: #111;
       color: white;
       text-align: center;
       padding: 120px 40px;
     }
 
-    .hero h1 {
+   .main-black-page h1 {
       font-size: 3rem;
       font-weight: 700;
       margin-bottom: 12px;
     }
-    .hero p {
+    .main-black-page p {
       font-size: 1.1rem;
       color: #aaa;
       margin-bottom: 30px;
