@@ -1,9 +1,9 @@
- // Mettre la date minimum à aujourd'hui
+ 
     const aujourd_hui = new Date().toISOString().split('T')[0];//Mettre la date minimum à aujourd’hui
     document.getElementById('dateDebut').min = aujourd_hui;
     document.getElementById('dateFin').min = aujourd_hui;
 
-    // Mettre à jour le récapitulatif
+    
     function mettreAJourRecap() {
       const voitureVal = document.getElementById('voiture').value;
       const debut = document.getElementById('dateDebut').value;
@@ -15,11 +15,11 @@
         document.getElementById('recapVoiture').textContent = nom;
       }
 
-      // Afficher les dates
+      
       if (debut) document.getElementById('recapDebut').textContent = formaterDate(debut);
       if (fin)   document.getElementById('recapFin').textContent   = formaterDate(fin);
 
-      // Calculer le total
+      
       if (voitureVal && debut && fin) {
         const prixParJour = parseInt(voitureVal.split('|')[1]);
         const date1 = new Date(debut);
@@ -33,13 +33,13 @@
       }
     }
 
-    // Formater la date : 2025-01-15 → 15/01/2025
+    
     function formaterDate(str) {
       const [a, m, j] = str.split('-');
       return j + '/' + m + '/' + a;
     }
 
-    // Valider et confirmer
+    
     function confirmer() {
       const prenom  = document.getElementById('prenom').value.trim();
       const nom     = document.getElementById('nom').value.trim();
