@@ -1,5 +1,5 @@
  
-    const aujourd_hui = new Date().toISOString().split('T')[0];//Mettre la date minimum à aujourd’hui
+    const aujourd_hui = new Date().toISOString().split('T')[0];
     document.getElementById('dateDebut').min = aujourd_hui;
     document.getElementById('dateFin').min = aujourd_hui;
 
@@ -9,7 +9,6 @@
       const debut = document.getElementById('dateDebut').value;
       const fin = document.getElementById('dateFin').value;
 
-      // Afficher le nom de la voiture
       if (voitureVal) {
         const nom = voitureVal.split('|')[0];
         document.getElementById('recapVoiture').textContent = nom;
